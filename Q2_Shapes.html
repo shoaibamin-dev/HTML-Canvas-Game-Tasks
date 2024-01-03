@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <body>
+			
+	    <h1>Q2 Drawing shapes - SET 3<h1>
+        
+        
+        <h3>Q1. Write the code using Canvas API to create the following shape using circles and rectangles. Note that colors must match. Use markers around the canvas to get x and y coordinates. All circles have radius of 10. Rectangles have a width of 20 and a height of 40.
+        [10 marks]<h3>
+        
+        <div align="center">
+            <img src = "set1q2.png">
+        </div>
+        
+        <hr />
+        
+        <p></p>
+        
+        <div align="center">
+			<canvas id="canvas1" width="400" height="200" tabindex="0" style=";border:1px solid #000000;">
+			</canvas>
+        </div>
+            
+        <script>
+            var canvas = document.getElementById("canvas1");
+            var ctx = canvas.getContext("2d");
+
+			//Your code goes here ......
+            
+			
+			function drawCircle(x, y, radius, color) {
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            function drawRect(gx, gy, gwidth, ghieght, color) {
+                    ctx.beginPath();
+                    ctx.fillStyle = color;
+                    var a = gx;
+                    var b = gy;
+                    var c = gwidth;
+                    var d = ghieght;
+                    ctx.fillRect(a, b, c, d)
+
+                }
+
+            drawCircle(100,50,10, '#FFA500')
+            drawCircle(200,50,10, '#008000')
+                drawCircle(300, 50, 10, '#0000FF')
+
+            drawRect(90, 75, 20, 40, "#000")
+            drawRect(190,75, 20, 40, "#000")
+                drawRect(290,75, 20,40, "#000")
+			
+			
+			
+		</script>
+    </body>
+</html>
+        
+        
+        

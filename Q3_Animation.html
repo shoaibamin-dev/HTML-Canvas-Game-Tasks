@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+    <body>
+			
+	    <h1>Q3 Animation - SET 3<h1>
+        
+        
+        <h3>Q1. Write the code using Canvas API for circles and <i>RequestAnimationFrame</i> to create the following animation. The green ball moves down from top center until it hits the black rectangle (y=80) and the continues to bounce back up. The orange ball moves up from bottom center until it also hits the black rectangle at y = 110 and starts to go down again as shown in the animated GIF. The radius of both the balls is 10. 
+        Note that the animation must be continuous.
+        [20 marks]<h3>
+        
+        <div align="center">
+            <img src = "set1q3.gif">
+        </div>
+        
+        <hr />
+        
+        <p></p>
+        
+        <div align="center">
+			<canvas id="canvas1" width="400" height="200" tabindex="0" style=";border:1px solid #000000;">
+			</canvas>
+        </div>
+            
+        <script>
+            var canvas = document.getElementById("canvas1");
+            var ctx = canvas.getContext("2d");
+
+            let greenBallX = canvas.width / 2;
+            let greenBallY = 0;
+
+            let orangeBallX = canvas.width / 2;
+            let orangeBallY = canvas.height - 10;
+
+            let greenBallGoingDown = true;
+            let orangeBallGoingUp = true;
+
+            //let requestAnimationFrame = 
+            function animate() {
+                setTimeout(()=> {
+
+                    requestAnimationFrame(animate);
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    //solid rectangle - DO NOT DELETE
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(100, 90, 200, 10)
+
+                    //Your code goes here ......
+
+
+                    drawCircle(greenBallX, greenBallY, 10, '#008000')
+                    
+                    if(greenBallGoingDown ){
+                        greenBallY += 5
+                    }
+                    else{
+                        greenBallY -= 5
+                    }
+
+                    if (greenBallY >= 80) {
+                        greenBallGoingDown = false
+                    }
+                    if(greenBallY <= 0){
+                        greenBallGoingDown = true
+                    }
+
+                     drawCircle(orangeBallX, orangeBallY, 10, '#FFA500')
+
+                    if (orangeBallGoingUp) {
+                        orangeBallY -= 5
+                    }
+                    else {
+                         orangeBallY += 5
+                    }
+
+                    if (orangeBallY <= 110) {
+                        orangeBallGoingUp = false
+                    }
+                    if (orangeBallY >= canvas.height) {
+                        orangeBallGoingUp = true
+                    }
+                    
+                  
+        
+                }, 100);
+            }
+        
+			function drawCircle(x, y, radius, color) {
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            animate();
+			
+		</script>
+    </body>
+</html>
+        
+        
+        

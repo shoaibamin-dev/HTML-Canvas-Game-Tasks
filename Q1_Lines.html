@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <body>
+			
+	    <h1>Q1 Drawing with lines - SET 3<h1>
+        
+        
+        <h3>Q1. Write the code using Canvas API to create the following shape using lines.
+        [10 marks]<h3>
+        
+        <div align="center">
+            <img src = "set1q1.png">
+        </div>
+        
+        <hr />
+        
+        <p></p>
+        
+        <div align="center">
+			<canvas id="canvas1" width="400" height="200" tabindex="0" style=";border:1px solid #000000;">
+			</canvas>
+        </div>
+            
+        <script>
+            var canvas = document.getElementById("canvas1");
+            var ctx = canvas.getContext("2d");
+
+			//Your code goes here .....
+
+
+                        
+            function drawLine(x1, y1, x2, y2) {
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+            } 
+			
+            drawLine(25, 100, 100, 175)
+            drawLine(50, 100, 100, 50)
+            drawLine(100, 50, 300, 50)
+            drawLine(300, 50, 350, 100)
+            drawLine(25, 100, 100, 175)
+            
+            drawLine(300,175, 375, 100)
+            
+            drawLine(100, 150, 150, 100)
+            drawLine(150, 100, 250, 100)
+            drawLine(250, 100, 300, 150)
+       
+			
+			
+			
+		</script>
+    </body>
+</html>
+        
+        
+        
